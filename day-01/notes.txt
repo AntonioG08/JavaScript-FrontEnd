@@ -1,0 +1,22 @@
+FIRST DAY
+
+When learning about JavaScript, is very important to remember that we are talking about doing web development. That 
+means that we are working inside the 'Internet', more specifically inside the "World Wide Web" or "WWW". But why
+is important to know this? It's important because we need to understand, that the way the internet works, is that
+it is transmiting/sending information to our device (PC, Laptop, cellphone, etc). And what information is it 
+sending? The internet is not sending the objects, it sends the INSTRUCTIONS so that our device can recreate those
+objects.
+
+So for example, if we want to see an image stored somewhere in the internet, in the backend section, the internet
+is sending the instructions, so that our device can build that image. But, how does that works? The internet sends
+the binary information, which our computer or cellphone or whatever can take and then display the image with its colors
+and shapes and all that stuff.
+
+All this information is important, becase now that we now that our devices are receiving instructions from the internet,
+in order to build these objects, we can mention that there are basically 3 types of instructions:
+    - Structure instructions (how is the object going to be organized)
+    - Style instructions (colors, fonts, etc)
+    - Behavior instructions (responsive commands, like hover, clicks, etc)
+
+The structure instructions are written inside the HTML files, the style comes in CSS files, and lastly, the Behavior
+is set in JavaScript files.
