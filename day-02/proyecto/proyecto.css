@@ -1,0 +1,7 @@
+.pieDePagina{
+    text-align: center;
+}
+
+.pieDePagina a:hover{
+    background-color:bisque ;
+}

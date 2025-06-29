@@ -16,3 +16,15 @@ Is this robust and scalable??
 Doing this individually for each element in the HTML document, it is not scalable, but that's why we have
 the CSS files. In the CSS file, we can define that all the paragraphs <p> will be blue, and maybe define
 that all the headers <h1> will have a font-family of "fantasy". 
+
+Combinadores <----- Very important note
+We can combine some methods in CSS to give a better flexibility regarding the style. For examples related to 
+this topic please refer to the '07_example.html'. But basically, we have the following combinations:
+    - Descendants: 'div p {style}' this will apply certain style to all the <p> elements inside the 
+        specified div.
+    - Direct children: 'ol > li {style}'
+    - Direct brothers: 'h1+h2 {style}' this is indicating that h2 is brother of h1, therefore, ANY h2 element
+        that comes just after an h1 element, will share the same style. BUT only in this given case, when h2 is
+        RIGHT AFTER h1. 
+    - General brothers: 'h1~h2 {style}' this will give the same style to ALL h2 ELEMENTS that come before an h1,
+        therefore, the restriction we have in the "Direct brothers" method, is gone away here.

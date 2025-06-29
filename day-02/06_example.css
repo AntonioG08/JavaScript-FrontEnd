@@ -1,0 +1,27 @@
+body{
+    background-color: bisque;
+}
+
+ul{
+    font-size: large;
+}
+
+.principal{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.principal::first-line{
+    background-color: lightgray;
+}
+
+#informacion{
+    text-align: center;
+}
+
+a[href*=".edu"]{
+    background-color: gold;
+}
+
+h1:hover{
+    color: red;
+}
