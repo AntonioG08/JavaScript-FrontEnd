@@ -7,3 +7,15 @@ like ":hover" to change the attribute of something when the mouse goes over the 
 The next step in this action plan, is to learn JavaScript. Let's take a moment to analyze that
 JavaScript is "Java + Script", and it is because it's precisely a script, that will indicate 
 how the HTML elements should be or behave. That way we will achieve a dynamic website.
+
+VARIABLES:
+First we will start by learning that there are 2 types of variables, the ones which are dynamic,
+and those who not. For example, see below:
+    - let miNombre = "Antonio"
+    - const numeroPi = 3.1416
+
+As you may guess, the first one is dynamic, as it may change during the code execution and be
+assigned with different values. The second one don't, eventough it's weird that a variable
+can't change it's value, we can see that there are some cases when we want to store a value or
+something, and that given the circumstances, it won't change. Another example:
+    - const gravity = 9.81

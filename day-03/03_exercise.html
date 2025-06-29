@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+    <head>
+        <title>Ejercicio | Uso de variables</title>
+        <link rel="stylesheet" href="01_exercise.css">
+    </head>
+    <body>
+        <p>Ingresa tu nombre por favor</p>
+        <input type="text" placeholder="Mi nombre" id="nombreUsuario">
+        <button onclick="saludarUsuario()">Saludar</button>
+    </body>
+    <script>
+        function saludarUsuario(){
+            let nombre = document.getElementById("nombreUsuario");
+            alert("Hola " + nombre.value  + "! Saludos")
+        }
+    </script>
+</html>

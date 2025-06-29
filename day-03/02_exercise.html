@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+    <head>
+        <title>Ejercicio | Primera prueba de JS</title>
+        <link rel="stylesheet" href="01_exercise.css">
+    </head>
+    <body>
+        <p>Ingresa tu nombre por favor</p>
+        <input type="text" placeholder="Mi nombre" id="nombreUsuario">
+        <button onclick="saludarUsuario()">Saludar</button>
+    </body>
+    <script>
+        function saludarUsuario(){
+            alert("Hola " + document.getElementById("nombreUsuario").value + "! Saludos")
+        }
+    </script>
+</html>
