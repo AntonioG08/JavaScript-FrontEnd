@@ -1,0 +1,18 @@
+SECOND DAY
+
+When working with HTML, we have seen that we can define some attributes. Some of them are 
+tags, like the <b> or <i> or <u> to change the style of the text. But other attributes, are not
+tags precisely, they are attributes within a tag, for example in the tag of an image "<img>" we 
+can select attributes like the width, length, source, alt(alternative text), etc.
+
+Why is this important? 
+This is the foundations of CSS, which stands for "Cascade Style Sheet". IF we have few styles, we can
+put them directly in the tag of an element, for example: <p style="color: blue;"> </p>
+The previous example will asign a blue color to the "paragraph" element, but we are not stopping there,
+the attribute "style" can define more than just 1 property, we can also define margins, padding, font-size,
+font-family, etc., MANY properties.
+
+Is this robust and scalable??
+Doing this individually for each element in the HTML document, it is not scalable, but that's why we have
+the CSS files. In the CSS file, we can define that all the paragraphs <p> will be blue, and maybe define
+that all the headers <h1> will have a font-family of "fantasy". 
