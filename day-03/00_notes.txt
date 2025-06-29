@@ -1,0 +1,9 @@
+THIRD DAY
+
+Now, we will begin our journey at learning JavaScript. So far, we have learned the basis by
+going through HTML, CSS, but that is for static websites, at most we can use some functions
+like ":hover" to change the attribute of something when the mouse goes over the element.
+
+The next step in this action plan, is to learn JavaScript. Let's take a moment to analyze that
+JavaScript is "Java + Script", and it is because it's precisely a script, that will indicate 
+how the HTML elements should be or behave. That way we will achieve a dynamic website.
