@@ -19,3 +19,13 @@ assigned with different values. The second one don't, eventough it's weird that 
 can't change it's value, we can see that there are some cases when we want to store a value or
 something, and that given the circumstances, it won't change. Another example:
     - const gravity = 9.81
+
+Types of variables within JavaScript:
+    - Numbers: 1,2,3,4 etc 
+    - Strings: "Hola", "Mundo"
+    - Booleans: True/False
+    - Arrays (Python lists): [10, 20, 30] / ["Antonio", "Gomez", "Ruiz"]
+    - Objects (Python dicts): {animal: 'dog',
+                               name: 'Doki',
+                               age: 4}
+    

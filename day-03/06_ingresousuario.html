@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+    <head>
+        <title>Ejercicio | Ingreso de usuario</title>
+    </head>
+    <body>
+        <h1>Prueba</h1>
+        <br>
+
+        <p>Ingresa tu usuario/nombre</p>
+        <input type="text" id="nombreUsuario" placeholder="Mi nombre">
+        <button onclick="mostrarNombre()">Ingresar</button>
+        <h3 id="saludo">No se tu nombre</h3>
+        <script>
+            function mostrarNombre(){
+                let elementoNombre = document.getElementById("nombreUsuario");
+                let elementoTexto = document.getElementById("saludo");
+                elementoTexto.textContent = "Saludos, " + elementoNombre.value;
+            }
+        </script>
+    </body>
+</html>

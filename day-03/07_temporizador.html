@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+    <head>
+        <title>Ejercicio | Temporizador</title>
+    </head>
+    <body>
+        <input type="number" placeholder="Ingresa cuantos segundos de espera" id="tiempoElegido">
+        <button onclick="comenzarTiempo()">Alarma</button>
+        <h1 id="textoAlarma" style="color: red;">APAGADO</h1>
+
+        <script>
+            let elementoSegundos = document.getElementById("tiempoElegido");
+            let elementoAlarma = document.getElementById("textoAlarma")
+            
+            function comenzarTiempo(){
+                setTimeout(tiempoCumplido, 1000 * elementoSegundos.value);
+            }
+
+            function tiempoCumplido(){
+                alert("Se acabo el tiempo");
+                elementoAlarma.textContent = "ENCENDIDO";
+                elementoAlarma.style.color = "green";
+
+            }
+        </script>
+    </body>
+</html>
