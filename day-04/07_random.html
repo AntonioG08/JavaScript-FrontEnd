@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+    <head>
+        <title>Función aleatoria</title>
+        <link rel="stylesheet" href="04_mycss.css">
+    </head>
+    <body>
+        <h1>Generador de número aleatorio</h1>
+        <br>
+        <p><button onclick="mostrarResultado();">Calcular aleatorio SIN redondeo</button></p>
+        <p><input type="checkbox" id="siRedondear"> Quiero redondear mi resultado</p>
+        <p id="randomNumber">Número: </p>
+
+        <script>
+            function mostrarResultado(){
+                const myCheckBox = document.getElementById("siRedondear");
+                let resultadoAleatorio = document.getElementById("randomNumber");
+                
+                if (myCheckBox.checked) {
+                    let number = Math.round(Math.random() * 100);
+                    resultadoAleatorio.textContent = "Número: " + number;
+                } else {
+                    let number = Math.random() * 100;
+                    resultadoAleatorio.textContent = "Número: " + number;
+                }
+            }
+        </script>
+
+    </body>
+</html>

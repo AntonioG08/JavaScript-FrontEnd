@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+    <head>
+        <title>Módulo de matemáticas</title>
+        <link rel="stylesheet" href="04_mycss.css">
+    </head>
+    <body>
+        <h1>Redondeo en JavaScript</h1>
+        <p>Número: <input type="number" id="numberDividend" placeholder="0"></p>
+        <p>Dividido entre: <input type="number" id="numberDivisor" placeholder="0"></p>
+        <p><button onclick="mostrarResultadoSinRedondeo();">Calcular SIN redondeo</button></p>
+        <p><button onclick="mostrarResultadoConRedondeo();">Calcular CON redondeo</button></p>
+        <p id="textoResultado"></p>
+
+        <script>
+            function calcularResultado(dividend, divisor){
+                let result = dividend/divisor;
+                return result
+            }
+
+            function mostrarResultadoSinRedondeo(){
+                let dividendUser = document.getElementById("numberDividend");
+                let divisorUser = document.getElementById("numberDivisor");
+                let result = document.getElementById("textoResultado");
+
+                let calcResult = calcularResultado(dividendUser.value, divisorUser.value);
+                result.textContent = "El resultado es: " + calcResult;
+            }   
+            
+            function mostrarResultadoConRedondeo(){
+                let dividendUser = document.getElementById("numberDividend");
+                let divisorUser = document.getElementById("numberDivisor");
+                let result = document.getElementById("textoResultado");
+
+                let calcResult = Math.round(calcularResultado(dividendUser.value, divisorUser.value));
+                result.textContent = "El resultado es: " + calcResult;
+            }   
+        </script>
+
+    </body>
+</html>
