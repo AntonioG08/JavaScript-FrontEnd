@@ -1,0 +1,25 @@
+body {
+    background-color: antiquewhite;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 1em;
+}
+
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 1em;
+}
+
+button {
+    color: white;
+    background-color: cadetblue;
+    padding: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+}
+
+button:hover{
+    cursor:pointer;
+}

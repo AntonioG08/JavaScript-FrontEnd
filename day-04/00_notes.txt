@@ -29,3 +29,12 @@ advantage that we can reuse code lines and use that as much as needed. For examp
 if we have a function that will salute the user whenever a button is clicked, we can 
 reuse that functionality in all the buttons as needed, but the code (JS Function) is 
 written only once.
+
+MATH MODULE
+JavaScript has a built-in module for Math operations. We can use them without the need
+of imports. Let's see some examples below:
+    + Math.pow(a, b) -> (3, 4) = 81
+    + Math.sqrt(x) -> (25)     = 5
+    + Math.abs(x) -> (-450)    = 450
+    + Math.PI -> 3.14159
+
