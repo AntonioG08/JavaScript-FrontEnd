@@ -3,7 +3,8 @@ Folder used to learn about JavaScript
 - The exercises found here are about an Udemy course "JavaScript Total - De cero a programador web". Please see 
       the structure of the repository below:
 
-JavaScript-FrontEnd                    
+JavaScript-FrontEnd 
+```text                   
 ├── .gitignore                 
 ├── README.md                  
 │
@@ -22,3 +23,4 @@ JavaScript-FrontEnd
 │   ├── notes.txt              # Notes corresponding to the day 3
 │   └── code                   # All the code files related to day 3
 │
+```
