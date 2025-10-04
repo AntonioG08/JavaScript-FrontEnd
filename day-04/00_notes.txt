@@ -1,0 +1,31 @@
+FOURTH DAY
+
+During day 4, we will be deep diving into JavaScript's functions. Let's remember 
+that in the past we've already used functions in our solutions, but just to recap,
+a function is a block of code that will receive some parameter, execute some code,
+and potentially return something (or in some cases print something). Let's see 
+the example below of a function:
+
+function myFunction() {
+    command 1;
+    command 2;
+    command 3;
+}
+
+Let's also remember that, our function will live in our code, but that doesn't means 
+that it will be executed whenever. The function will be executed when it is called 
+in our code execution. Let's see the following function we did in the past for example:
+
+function mostrarNombre(){
+    let elementoNombre = document.getElementById("nombreDeUsuario");
+    let elementoTexto = document.getElementById("salida");
+    let mensaje = "Saludos " + elementoNombre.value + " !";
+
+    elementoTexto.textContent = mensaje;
+}
+
+With the functions (similar to any other high-level language e.g. Python) we have the 
+advantage that we can reuse code lines and use that as much as needed. For example, 
+if we have a function that will salute the user whenever a button is clicked, we can 
+reuse that functionality in all the buttons as needed, but the code (JS Function) is 
+written only once.
