@@ -1,0 +1,33 @@
+SIXTH DAY
+
+For the fifth day, we will be learning about loops inside JavaScript.
+The loops are basically bucles, that help us to repeat a code section
+that we want to execute again and again, as much as we need (It's 
+IMPORTANT to always put an ending condition, otherwise it will run
+forever or the machine will throw an error).
+
+Each iteration doesn't need to be exactly the same, we can add changes
+on each iteration with the help of parameters. For example a loop could 
+print the age of someone, but each time change the age by incrementing 1
+age on each iteration, therefore printing the age from year 1 until meeting
+the current age of the user.
+
+The syntax is essentially this:
+
+for (condition) {
+    console.log("Hello world")
+}
+
+
+Now, in the condition we must comply with 3 parameters that are MANDATORY:
+    - Initial condition
+    - Ending condition
+    - Update condition 
+Let see these in the previous example:
+
+for (let x=0, x < 5, x = x+1){
+    console.log("Hello world")
+}
+
+The previous example will print the text "Hello world" 5 times, because the 
+variable "x" is initialized at 0, and increments on 1 on each iteration. 

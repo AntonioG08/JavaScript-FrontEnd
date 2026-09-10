@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Logs de consola</title>
+    <link>
+    <script></script>
+</head>
+
+<body>
+    <h1>Prueba de loop en JS</h1>
+    <h1>Abra las herramientas del desarrollador para ver los logs</h1>
+    <br>
+    <br>
+</body>
+<script>
+    for (x = 0; x < 5; x++) {
+        console.log(`Esta es la vuelta número: ${x}`);
+    }
+
+    /*The loop is useful for writing a dynamic header, that goes from
+      h1 until h5, so we can see the text difference*/
+    for (x = 1; x < 6; x++) {
+        //document.write("<h" + x + ">Hola mundo</" + x + ">")
+        document.write(`<h${x}>Hola mundo</h${x}>`)
+    }
+</script>
+
+</html>
