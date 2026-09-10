@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Mi cine | Proyecto 5</title>
+    <script src="proyecto_05.js"></script>
+    <link rel="stylesheet" href="proyecto_05.css">
+</head>
+
+<body>
+    <h1>Tu recomendador de cine Online</h1>
+    <br>
+    <h4>Ingrese su edad en el campo a continuación, por favor</h4>
+    <input type="number" id="edadCliente" min="1" max="99">
+    <br>
+    <br>
+    <h4>Haga click en uno de los botones a continuación</h4>
+    <button onclick="recomendarPelicula('drama')">Drama</button>
+    <button onclick="recomendarPelicula('accion')">Acción</button>
+    <button onclick="recomendarPelicula('comedia')">Comedia</button>
+    <button onclick="recomendarPelicula('ciencia ficcion')">Ciencia ficción</button>
+    <br>
+    <br>
+    <h2>Nuesta recomendación:</h2>
+    <h4 id="recomendacion"></h4>
+</body>
+
+</html>
