@@ -1,0 +1,90 @@
+FIFTH DAY
+
+For the fifth day, we will be learning about the Bool logic within JavaScript
+and also logical functions. It's very important to learn about this, since the logic
+can be quite different from other programming languages such as Python. 
+
+
+=========== Boolean logic
+In JavaScript, every value can be evaluated as either truthy or falsy when used 
+in a Boolean context, such as an "if" statement or when passed to Boolean(). 
+
+Lets see what are the FALSY VALUES within JS
+JavaScript has a small, specific set of values that are considered falsy, which 
+are the ones in the following list:
+    + false
+    + 0 (the integer, a "0" would be very different)
+    + -0
+    + 0n
+    + ""
+    + null 
+    + undefined
+    + NaN 
+
+Some examples of this are:
+Boolean(false)      -> false
+Boolean(0)          -> false
+Boolean(-0)         -> false
+Boolean(0n)         -> false
+Boolean("")         -> false
+Boolean(null)       -> false
+Boolean(undefined)  -> false
+Boolean(NaN)        -> false
+Boolean(1/"hola")   -> false (note: this division throws an error, thus, NaN, thus, false)
+
+
+Now for the TRUTHY VALUES within JS 
+Once we learn and understand the values that are falsy, we can easily understand that 
+anything else is a Truthy value. For example:
+
+Numbers
+Boolean(1)                  -> true
+Boolean(-1)                 -> true
+Boolean(100)                -> true
+
+Strings
+Boolean("Hola")             -> true
+Boolean("0")                -> true
+Boolean("false")            -> true
+Boolean(" ")                -> true
+
+Lists
+Boolean([])                 -> true
+Boolean([1, 2, 3])          -> true
+
+Dictionaries
+Boolean({})                 -> true
+Boolean({ name: "Bob" })    -> true
+
+So, a useful mental model would be to think that falsy values are the EXCEPTION, and 
+truthy values are the rule, because everything else is truthy. About the strings, it's 
+important to notice that an empty string is falsy (""), but any non-empty string is 
+truthy, like the example of ("false") which is a valid string, therefore truthy. 
+The content of the string DOESN'T matter, as long as there is at least one character. 
+
+And about arrays, as we saw, unlike some other programming languages, empty arrays and 
+empty objects are truthy in JavaScript. This is also important because an empty array or
+object is still an existing object in JavaScript. To compare, in Python, the empty lists 
+and dictionaries are treated as false: 
+bool([]) # False
+bool({}) # False
+
+
+The practical use of all this is that, true/false values are used commonly in conditional 
+statements, for example:
+    if (value) {
+        //executes something WHEN TRUE 
+    }
+
+Lets see a more concise example:
+    const myName = "Antonio";
+
+    if (name) {
+        console.log("A name was provided, hello " + myName);
+    } 
+
+=========== Logical Operators
+We need to assemble many expressions, lets see some of them:
+    - AND (&&)
+    - NOT (!)
+    - OR (||) 
