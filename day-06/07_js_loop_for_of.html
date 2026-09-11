@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Loop For Of</title>
+    <link>
+    <script></script>
+</head>
+
+<body>
+    <h1>Ejemplo de un código con loop "For... Of" </h1>
+    <br>
+    <br>
+    <button onclick="mostrarElementos()">Ver los elementos de la lista</button>
+    <ul id="elementosFor">
+
+    </ul>
+</body>
+<script>
+    //Initialize the variables that will be used for this exercise
+    let myArray = ['a', 'b', 'c', 'd'];
+    let listaUl = document.getElementById("elementosFor");
+
+    function mostrarElementos() {
+        //Clean the list in case the code has been executed before
+        listaUl.innerHTML = "";
+
+        //While loop, that may or not execute 
+        for (let x of myArray) {
+            let nuevoItem = document.createElement("li");
+            nuevoItem.innerText = x;
+            listaUl.appendChild(nuevoItem);
+        }
+    }
+
+</script>
+
+</html>

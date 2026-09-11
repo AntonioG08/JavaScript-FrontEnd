@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Loop While</title>
+    <link>
+    <script></script>
+</head>
+
+<body>
+    <h1>Ejemplo de un código con loop "While" </h1>
+    <br>
+    <br>
+    <h3 id="miNombre"></h3>
+</body>
+<script>
+    //Initialize the variables that will be used for this exercise
+    let nombre;
+    let textoNombre = document.getElementById("miNombre");
+
+    /*IF the parameter is given, the condition is false, and the 
+      while block is not executed*/
+    //nombre = antonio;
+
+    //While loop, that may or not execute 
+    while (nombre != "antonio") {
+        nombre = prompt("Di mi nombre (minúsculas)");
+    };
+
+    //Update a text in the HTML once the condition is met and the loop is broken
+    textoNombre.textContent = "Ese es mi nombre!";
+
+
+</script>
+
+</html>

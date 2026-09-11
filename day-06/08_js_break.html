@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Break command</title>
+    <link>
+    <script></script>
+</head>
+
+<body>
+    <h1>Ejemplo de un código que utiliza el comando "break" </h1>
+    <br>
+</body>
+<script>
+    //Initialize the variables that will be used for this exercise
+    let myArray = [1, 5, 9, 24, 39, 86, 4, 5, 36, 12];
+
+    //Loop that filters the array and only prints numbers lower than 50 
+    document.write("<h1>Ejemplo sin 'break' ni 'continue'</h1>");
+    for (let numero of myArray) {
+        if (numero < 50) {
+            document.write(numero + "<br>");
+        };
+    }
+
+
+    /*Loop that filters the array, BUT when a number greater than 50 is found
+      it breaks its execution*/
+    document.write("<h1>Ejemplo CON break interrumpiendo el ciclo</h1>");
+    for (let numero of myArray) {
+        if (numero < 50) {
+            document.write(numero + "<br>");
+        } else {
+            break;
+        }
+    }
+
+    /*Loop that filters the array, BUT when a number greater than 50 is found
+      it hits the 'continue' commands*/
+    document.write("<h1>Ejemplo CON continue</h1>");
+    for (let numero of myArray) {
+        if (numero < 50) {
+            document.write(numero + "<br>");
+        } else {
+            continue;
+        }
+    }
+
+
+    document.write("<br><br><h1>Eso es todo, gracias!</h1>");
+
+</script>
+
+</html>
