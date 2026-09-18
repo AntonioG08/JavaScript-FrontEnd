@@ -12,7 +12,10 @@ print the age of someone, but each time change the age by incrementing 1
 age on each iteration, therefore printing the age from year 1 until meeting
 the current age of the user.
 
-The syntax is essentially this:
+
+==== LOOP FOR 
+Lets learn about the first loop, which is the loop "For". The syntax is 
+essentially this:
 
 for (condition) {
     console.log("Hello world")
@@ -31,3 +34,66 @@ for (let x=0, x < 5, x = x+1){
 
 The previous example will print the text "Hello world" 5 times, because the 
 variable "x" is initialized at 0, and increments on 1 on each iteration. 
+
+
+==== LOOP DO... WHILE
+Moving forward, lets now learn about the next loop we might use within JS, 
+the "Do... While" loop. This is a very interesting loop, because it 
+guarantees that the code gets executed AT LEAST 1 time. The syntax is very clear,
+the code gets executed, and then the "WHILE" checks if the condition is met to 
+run one more time (another iteration). Lets see an example:
+
+let counter = 5;
+do {
+    document.write("El contador es: " + counter + "<br>");
+    counter--;
+} while (counter >= 0);
+
+On the previous example, a counter is given, initialized with 5, and then the code 
+will print AT LEAST 1 time the text "El contador es: 5". Then the variable gets updated,
+and then the WHILE clause checks if the condition is still being met (more or equal
+than 0), to see if a next iteration will happen.
+
+
+==== LOOP WHILE
+Similar to this, we have the next loop which is "While". Here the logic changes a bit, 
+because BEFORE running anything, it will check the condition. So maybe, the condition 
+is not met from the very beginning, and nothing gets executed at all. Lets see the 
+next example:
+
+let age = 19;
+while (age >= 18) {
+    document.write("Puedes ingresar a la fiesta!);
+}
+
+In that example, as long as the person is over 18 years old, the person is allowed to 
+enter the party (they have booze). But IF another person arrives, with an age younger
+than 18, then the entrance is NOT allowed. With the other example of "Do... While", the logic 
+would be, allow him to enter, and then check if he is old enough, if yes, just leave that
+person there, if not, kick him off. That logic would not be right, because if the person
+is not old enough, he must be restricted from the very beginning. 
+
+
+==== LOOP "FOR... OF"
+Moving forward, the next cycle is "FOR... OF", which allows us to take an iterable item (like
+an array, a dictionary, or even a string), and iterate over it. Lets see the example below 
+to see the syntax and a practical example: 
+
+let totalSubjects = 0;
+let schoolSubjects = ["history", "english", "math", "biology"];
+for (let subject of schoolSubjects) {
+    totalSubjects++;
+    document.write("You are enrolled in the class: " + subject + "<br>");
+}
+document.write("In total, you are enrolled in: " + totalSubjects);
+
+The previous code would iterate through a list of subjects which a student is assisting to, and 
+count how many he is attending to, while also printing a message confirming what subjects are. In 
+the end it shows the total number of subjects after going through each of them.
+
+NOTE:
+When we want to manipulate the flow of a function, we can use "break" to cut a loop, or we can use
+"return" to actually finish the function execution. For example, break would help us to finish a loop,
+BUT if there is more code after that loop, it will still get executed, we only broke the loop.
+On the other hand, if we place "return", then the loop AND the function stop, and we move out of the 
+function, returning something or anything. See the project of "dia 6" to see an example of this.

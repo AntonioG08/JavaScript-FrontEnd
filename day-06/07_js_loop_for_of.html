@@ -16,6 +16,16 @@
     </ul>
 </body>
 <script>
+    //Basic example of a "For Of" code
+    let totalSubjects = 0;
+    let schoolSubjects = ["history", "english", "math", "biology"];
+    for (let subject of schoolSubjects) {
+        totalSubjects++;
+        document.write("You are enrolled in the class: " + subject + "<br>");
+    }
+    document.write("In total, you are enrolled in: " + totalSubjects);
+
+
     //Initialize the variables that will be used for this exercise
     let myArray = ['a', 'b', 'c', 'd'];
     let listaUl = document.getElementById("elementosFor");

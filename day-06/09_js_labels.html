@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Labels in JSs</title>
+    <link>
+    <script></script>
+</head>
+
+<body>
+    <h1>Ejemplo de un código que utiliza labels </h1>
+    <br>
+</body>
+<script>
+    //Basic for cycle/loop
+    for (let y = 1; y <= 10; y++) {
+        if (y == 4) {
+            continue;
+        } else {
+            document.write(y)
+        }
+    }
+
+    document.write("<br><br>")
+
+    //Initialize variables for the loop
+    let alto = 3;
+    let ancho = 4;
+
+    //Initialize the label
+    loopExterno:
+
+    //Initialize the loop
+    for (let y = 1; y <= alto; y++) {
+        for (let x = 1; x <= ancho; x++) {
+            document.write(`${y}.${x}<br>`);
+            if (y == 2 && x == 2) {
+                //Break and take us to the point of the label
+                break loopExterno;
+            }
+        }
+    }
+
+</script>
+
+</html>

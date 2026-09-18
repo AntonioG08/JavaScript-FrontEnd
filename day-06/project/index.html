@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Proyecto dia 6</title>
+    <link rel="stylesheet" href="proyecto_06.css">
+    <link rel="shortcut icon" href="logo.jpg">
+    <script src="proyecto_06.js"></script>
+</head>
+
+<body onload="mostrarListado()">
+    <div class="logo">
+        <img src="logo.jpg" />
+        <h2>Bienvenido a tu boletín estudiantil</h2>
+    </div>
+
+    <div class="estudiante">
+        <h3>Alumno: Antonio Gómez Ruiz</h3>
+    </div>
+
+    <h4>Notas:</h4>
+    <ul id="textoListadoCalificaciones">
+    </ul>
+
+    <div class="info">
+        <button onclick="mostrarPromedio()">Obtener promedio</button>
+        <button onclick="mostrarNotaAlta()">Conocer nota más alta</button>
+        <button onclick="mostrarReprobados()">¿Hubo reprobados?</button>
+
+        <br>
+        <p id="textoPromedio"></p>
+
+        <br>
+        <p id="textoNotaAlta"></p>
+
+        <br>
+        <p id="textoReprobado"></p>
+    </div>
+</body>
+
+</html>
