@@ -13,3 +13,7 @@ focusing in the next topics within JS's objects:
 In JavaScript, objects are variables than can store both: values and functions. Thus,
 objects are one of the most important concepts in JavaScript since JS is an object
 based paradigm. 
+
+Conceptually they serve the same purpose, but they behave differently under the hood. 
+Both this in JavaScript and self in Python are used inside an object's methods to refer 
+to the specific instance of the object that is executing the code.

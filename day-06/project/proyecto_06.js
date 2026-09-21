@@ -1,80 +1,80 @@
 
-let listadoMaterias = ["Historia", "Ciencias", "Español", "Matemáticas", "Biología", "Geografía"];
-let listadoCalificaciones = [9, 10, 7, 8, 4, 9];
-let totalMaterias = listadoMaterias.length
+let subjectsList = ["Historia", "Ciencias", "Español", "Matemáticas", "Biología", "Geografía"];
+let gradesList = [9, 10, 7, 8, 4, 9];
+let totalSubjects = subjectsList.length
 
 //Function used to display to the user, a list of their current subjects along with their grades
-function mostrarListado() {
+function showList() {
     //Variables needed for this function
-    let listaDesordenda = document.getElementById("textoListadoCalificaciones");
+    let unorderedList = document.getElementById("gradesListText");
 
     //Clean always the UL, in case the code has been executed more than 1 time
-    listaDesordenda.innerHTML = "";
+    unorderedList.innerHTML = "";
 
     //Begin with the main loop. We will iterate over the list, with an index to get 
     //The elements in that position
-    for (let x = 0; x < totalMaterias; x++) {
+    for (let x = 0; x < totalSubjects; x++) {
         //Create the list item
-        let itemLista = document.createElement("li");
+        let listItem = document.createElement("li");
 
         //Prepare the text dynamically by taking the subject name and calification
-        itemLista.innerText = `Calificación de ${listadoMaterias[x]}: ${listadoCalificaciones[x]}`;
+        listItem.innerText = `Calificación de ${subjectsList[x]}: ${gradesList[x]}`;
 
         //Append the new List Item
-        listaDesordenda.appendChild(itemLista);
+        unorderedList.appendChild(listItem);
     };
 };
 
 //Function used to calculate the average of the student based on the current obtained gradess
-function mostrarPromedio() {
+function showAverage() {
     //Variables needed for this function
-    let elementoTextoPromedio = document.getElementById("textoPromedio");
-    let sumaCalificaciones = 0;
+    let averageTextElement = document.getElementById("averageText");
+    let gradesSum = 0;
 
     //Open the for cycle, to sum all the grades, needed for the average
-    for (let x of listadoCalificaciones) {
+    for (let x of gradesList) {
         //Sum the grade, and at the end perform the average calc
-        sumaCalificaciones = sumaCalificaciones + x;
+        gradesSum = gradesSum + x;
     };
 
     //Display the text to the user
-    elementoTextoPromedio.textContent = `El promedio total es: ${sumaCalificaciones / totalMaterias}`
+    averageTextElement.textContent = `El promedio total es: ${gradesSum / totalSubjects}`
 };
 
 //Function used to find the highest grade obtained by a student and display it
-function mostrarNotaAlta() {
+function showHighestGrade() {
     //Variables needed for this function
-    let elementoNotaAlta = document.getElementById("textoNotaAlta");
+    let highestGradeElement = document.getElementById("highestGradeText");
     let x = 0
-    let notaMasAlta = 0
+    let highestGrade = 0
 
     //Begin with the Loop (the teacher promped to use "While" for this function)
-    while (x < totalMaterias) {
-        if (listadoCalificaciones[x] > notaMasAlta) {
-            notaMasAlta = listadoCalificaciones[x];
+    while (x < totalSubjects) {
+        if (gradesList[x] > highestGrade) {
+            highestGrade = gradesList[x];
         };
         x++;
     };
 
     //Display the text to the user
-    elementoNotaAlta.textContent = `La nota mas alta encontrada fue: ${notaMasAlta}`;
+    highestGradeElement.textContent = `La nota mas alta encontrada fue: ${highestGrade}`;
 }
 
 //Function used to search through the grades, to see if the student failed a subject
-function mostrarReprobados() {
+function showFailed() {
     //Variables needed for this function
-    let elementoReprobado = document.getElementById("textoReprobado");
+    let failedElement = document.getElementById("failedText");
     let x = 0;
 
     //Main loop that will search until finding THE FIRST failed subject
     do {
-        if (listadoCalificaciones[x] < 6) {
-            elementoReprobado.textContent = "Lamentamos informarle que SI hay una materia reprobada";
+        if (gradesList[x] < 6) {
+            failedElement.textContent = "Lamentamos informarle que SI hay una materia reprobada";
             return;
         };
         x++;
-    } while (x < totalMaterias);
+    } while (x < totalSubjects);
 
     //IF no subject was failed, send a congratulations message
-    elementoReprobado.textContent = "¡Felicidades! No hubo ninguna materia reprobada";
+    failedElement.textContent = "¡Felicidades! No hubo ninguna materia reprobada";
 }

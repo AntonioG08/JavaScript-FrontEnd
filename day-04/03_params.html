@@ -4,41 +4,41 @@
     </head>
     <body>
         <h3>Primer número</h3>
-        <input type="number" id="primerNumero">
+        <input type="number" id="firstNumber">
         <br>
         <h3>Segundo número</h3>
-        <input type="number" id="segundoNumero">
-        <button onclick="mostrarResultado()">Calcular</button>
+        <input type="number" id="secondNumber">
+        <button onclick="showResult()">Calcular</button>
         <br>
         <br>
-        <h2 id="textoResultado"></h2>
+        <h2 id="resultText"></h2>
         <br>
         <br>
         <h3>Escriba un mensaje para mostrar</h3>
-        <input type="text" id="mensajeUsuario">
-        <button onclick="mandarMensaje()">Mostrar</button>
+        <input type="text" id="userMessage">
+        <button onclick="sendMessage()">Mostrar</button>
 
 
         <script>
-            function sumar(num1, num2){
+            function sum(num1, num2){
                 //Receive 2 params, sum them, and return them
                 result = +num1 + +num2;
                 return result;
             }
 
-            function mostrarResultado(){
+            function showResult(){
                 //
-                let elementoNumero1 = document.getElementById("primerNumero");
-                let elementoNumero2 = document.getElementById("segundoNumero");
-                let elementoResultado = document.getElementById("textoResultado");
-                let elementoSuma = sumar(elementoNumero1.value, elementoNumero2.value);
+                let numberElement1 = document.getElementById("firstNumber");
+                let numberElement2 = document.getElementById("secondNumber");
+                let resultElement = document.getElementById("resultText");
+                let sumElement = sum(numberElement1.value, numberElement2.value);
 
-                elementoResultado.textContent = elementoSuma;
+                resultElement.textContent = sumElement;
             }
 
-            function mandarMensaje(){
-                let mensajeUsuario = document.getElementById("mensajeUsuario");
-                alert(mensajeUsuario.value);
+            function sendMessage(){
+                let userMessage = document.getElementById("userMessage");
+                alert(userMessage.value);
             }
         </script>
     </body>

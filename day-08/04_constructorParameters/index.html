@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Mi primer objecto</title>
+    <link>
+    <script></script>
+</head>
+
+<body>
+    <script>
+        //Create an object constructor with its parameters
+        function Dog(breed, age, color) {
+            //Store the given parameters into the object properties
+            this.breed = breed;
+            this.age = age;
+            this.color = color;
+
+            //Method from our object
+            this.bark = function () {
+                console.log("Woof");
+            };
+        };
+
+        //Call the constructor to create new and different objects
+        let clifford = new Dog("Boxer", 8, "brown");
+        let pluto = new Dog("Labrador", 4, "yellow");
+
+        //Create another object constructor
+        function Employee(name, lastName, age, position) {
+            this.name = name;
+            this.lastName = lastName;
+            this.age = age;
+            this.position = position;
+
+            this.presentation = function () {
+                console.log(`My name is ${this.name} ${this.lastName}, my job position is ${position}, and my current age is ${age}`);
+            };
+        };
+    </script>
+</body>
+
+</html>

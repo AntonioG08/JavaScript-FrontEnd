@@ -1,69 +1,69 @@
 //Function used to obtain the numbers from the HTML document
-function extraerNumeroDesdeElemento(elemento) {
-    let miElemento = document.getElementById(elemento).value;
-    let miNumero = Number(miElemento);
+function getNumberFromElement(element) {
+    let myElement = document.getElementById(element).value;
+    let myNumber = Number(myElement);
 
-    return miNumero
+    return myNumber
 }
 
 //Function used to get the total sum from a given array
-function sumarTotal(miArray) {
+function sumTotal(miArray) {
     let total = 0;
 
-    for (let venta of miArray) {
-        total = total + venta;
+    for (let sale of miArray) {
+        total = total + sale;
     };
 
     return total;
 }
 
 //Function used to get the maximum value of the array
-function hallarMayorVenta(miArray) {
+function findHighestSale(miArray) {
     //Initialize with a first value to begin the comparison
-    let maximoNumero = miArray[0];
+    let maxNumber = miArray[0];
 
     //Loop for anlyzing all the elements of the array
-    for (let venta of miArray) {
-        if (venta > maximoNumero) {
-            maximoNumero = venta;
+    for (let sale of miArray) {
+        if (sale > maxNumber) {
+            maxNumber = sale;
         };
     };
 
     //Return the information back to the caller
-    return maximoNumero;
+    return maxNumber;
 }
 
 //Function used to get the minimum value of the array
-function hallarMenorVenta(miArray) {
+function findLowestSale(miArray) {
     //Initialize with a first value to begin the comparison
-    let maximoNumero = miArray[0];
+    let maxNumber = miArray[0];
 
     //Loop for anlyzing all the elements of the array
-    for (let venta of miArray) {
-        if (venta < maximoNumero) {
-            maximoNumero = venta;
+    for (let sale of miArray) {
+        if (sale < maxNumber) {
+            maxNumber = sale;
         };
     };
 
     //Return the information back to the caller
-    return maximoNumero;
+    return maxNumber;
 }
 
-function calcular() {
-    let ventas = [];
+function calculate() {
+    let sales = [];
 
-    ventas[0] = extraerNumeroDesdeElemento("ventasTienda1");
-    ventas[1] = extraerNumeroDesdeElemento("ventasTienda2");
-    ventas[2] = extraerNumeroDesdeElemento("ventasTienda3");
-    ventas[3] = extraerNumeroDesdeElemento("ventasTienda4");
-    ventas[4] = extraerNumeroDesdeElemento("ventasTienda5");
+    sales[0] = getNumberFromElement("storeSales1");
+    sales[1] = getNumberFromElement("storeSales2");
+    sales[2] = getNumberFromElement("storeSales3");
+    sales[3] = getNumberFromElement("storeSales4");
+    sales[4] = getNumberFromElement("storeSales5");
 
-    let totalVentas = sumarTotal(ventas);
-    let ventaMayor = hallarMayorVenta(ventas);
-    let ventaMenor = hallarMenorVenta(ventas);
+    let totalSales = sumTotal(sales);
+    let highestSale = findHighestSale(sales);
+    let lowestSale = findLowestSale(sales);
 
-    let mensajeSalida = "Total Ventas: " + totalVentas + " / Venta Mayor: " + ventaMayor + " / Venta Menor: " + ventaMenor;
-    let elementoSalida = document.getElementById("parrafoSalida");
+    let outputMessage = "Total Ventas: " + totalSales + " / Venta Mayor: " + highestSale + " / Venta Menor: " + lowestSale;
+    let outputElement = document.getElementById("outputParagraph");
 
-    elementoSalida.textContent = mensajeSalida;
+    outputElement.textContent = outputMessage;
 }

@@ -7,24 +7,24 @@
         <h1>Módulo de matemáticas de JavaScript</h1>
         <p>Número: <input type="number" id="numberOne" value="0"></p>
         <p>Elevado a la: <input type="number" id="numberPower" value="0"></p>
-        <p><button onclick="mostrarResultado();">Calcular</button></p>
-        <p id="textoResultado"></p>
+        <p><button onclick="showResult();">Calcular</button></p>
+        <p id="resultText"></p>
 
         <script>
-            function calcularResultado(num, power){
+            function calculateResult(num, power){
                 let result = Math.pow(num, power);
                 return result
             }
 
-            function mostrarResultado(){
+            function showResult(){
                 /*Note: Remember that we are using 'let' for variables that we know might 
                         change it's value during the code execution, opposite to 'const'.
                 */
                 let numberUser = document.getElementById("numberOne");
                 let powerUser = document.getElementById("numberPower");
-                let result = document.getElementById("textoResultado");
+                let result = document.getElementById("resultText");
 
-                let calcResult = calcularResultado(numberUser.value, powerUser.value);
+                let calcResult = calculateResult(numberUser.value, powerUser.value);
                 result.textContent = "El resultado es: " + calcResult;
             }           
         </script>

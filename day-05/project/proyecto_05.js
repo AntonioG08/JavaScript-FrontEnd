@@ -1,51 +1,51 @@
-function recomendarPelicula(genero) {
-    let edadCliente = document.getElementById("edadCliente").value;
-    let recomendacion = document.getElementById("recomendacion")
+function recommendMovie(genre) {
+    let clientAge = document.getElementById("clientAge").value;
+    let recommendation = document.getElementById("recommendation")
 
     /*Switch cases to recommend a movie based on the selected genre, and
       then filtered by the age of the client*/
-    switch (genero) {
+    switch (genre) {
         case ("drama"):
-            if (edadCliente < 13) {
-                recomendacion.textContent = "Casablanca";
+            if (clientAge < 13) {
+                recommendation.textContent = "Casablanca";
             } else {
-                if (edadCliente < 16) {
-                    recomendacion.textContent = "The Shawshank Redemption";
+                if (clientAge < 16) {
+                    recommendation.textContent = "The Shawshank Redemption";
                 } else {
-                    recomendacion.textContent = "Taxi Driver";
+                    recommendation.textContent = "Taxi Driver";
                 }
             }
             break;
         case ("accion"):
-            if (edadCliente < 13) {
-                recomendacion.textContent = "Tadeo: El explorador perdido";
+            if (clientAge < 13) {
+                recommendation.textContent = "Tadeo: El explorador perdido";
             } else {
-                if (edadCliente < 16) {
-                    recomendacion.textContent = "Transformers";
+                if (clientAge < 16) {
+                    recommendation.textContent = "Transformers";
                 } else {
-                    recomendacion.textContent = "Terminator";
+                    recommendation.textContent = "Terminator";
                 }
             }
             break;
         case ("comedia"):
-            if (edadCliente < 13) {
-                recomendacion.textContent = "Rio";
+            if (clientAge < 13) {
+                recommendation.textContent = "Rio";
             } else {
-                if (edadCliente < 16) {
-                    recomendacion.textContent = "Son como niños";
+                if (clientAge < 16) {
+                    recommendation.textContent = "Son como niños";
                 } else {
-                    recomendacion.textContent = "American pie";
+                    recommendation.textContent = "American pie";
                 }
             }
             break;
         case ("ciencia ficcion"):
-            if (edadCliente < 13) {
-                recomendacion.textContent = "Back to the Future";
+            if (clientAge < 13) {
+                recommendation.textContent = "Back to the Future";
             } else {
-                if (edadCliente < 16) {
-                    recomendacion.textContent = "Star Wars";
+                if (clientAge < 16) {
+                    recommendation.textContent = "Star Wars";
                 } else {
-                    recomendacion.textContent = "Dune";
+                    recommendation.textContent = "Dune";
                 }
             }
             break;

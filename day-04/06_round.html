@@ -7,31 +7,31 @@
         <h1>Redondeo en JavaScript</h1>
         <p>Número: <input type="number" id="numberDividend" placeholder="0"></p>
         <p>Dividido entre: <input type="number" id="numberDivisor" placeholder="0"></p>
-        <p><button onclick="mostrarResultadoSinRedondeo();">Calcular SIN redondeo</button></p>
-        <p><button onclick="mostrarResultadoConRedondeo();">Calcular CON redondeo</button></p>
-        <p id="textoResultado"></p>
+        <p><button onclick="showResultNoRounding();">Calcular SIN redondeo</button></p>
+        <p><button onclick="showResultWithRounding();">Calcular CON redondeo</button></p>
+        <p id="resultText"></p>
 
         <script>
-            function calcularResultado(dividend, divisor){
+            function calculateResult(dividend, divisor){
                 let result = dividend/divisor;
                 return result
             }
 
-            function mostrarResultadoSinRedondeo(){
+            function showResultNoRounding(){
                 let dividendUser = document.getElementById("numberDividend");
                 let divisorUser = document.getElementById("numberDivisor");
-                let result = document.getElementById("textoResultado");
+                let result = document.getElementById("resultText");
 
-                let calcResult = calcularResultado(dividendUser.value, divisorUser.value);
+                let calcResult = calculateResult(dividendUser.value, divisorUser.value);
                 result.textContent = "El resultado es: " + calcResult;
             }   
             
-            function mostrarResultadoConRedondeo(){
+            function showResultWithRounding(){
                 let dividendUser = document.getElementById("numberDividend");
                 let divisorUser = document.getElementById("numberDivisor");
-                let result = document.getElementById("textoResultado");
+                let result = document.getElementById("resultText");
 
-                let calcResult = Math.round(calcularResultado(dividendUser.value, divisorUser.value));
+                let calcResult = Math.round(calculateResult(dividendUser.value, divisorUser.value));
                 result.textContent = "El resultado es: " + calcResult;
             }   
         </script>

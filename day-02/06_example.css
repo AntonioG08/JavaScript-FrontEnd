@@ -6,15 +6,15 @@ ul{
     font-size: large;
 }
 
-.principal{
+.main{
     font-family: 'Courier New', Courier, monospace;
 }
 
-.principal::first-line{
+.main::first-line{
     background-color: lightgray;
 }
 
-#informacion{
+#information{
     text-align: center;
 }
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Mi primer objecto</title>
+    <link>
+    <script></script>
+</head>
+
+<body>
+    <script>
+        //Create an empty object using the method "new Object()"
+        let car1 = new Object();
+
+        car1.brand = "Nissan";
+        car1['model'] = "Skyline";
+        car1["year"] = 2016;
+        car1.encender = function () {
+            alert("The car is running");
+        };
+
+        //Another way to create an object, but passing parameters from the very beginning
+        let dog1 = new Object({ name: "Cliffor", breed: "Boxer" });
+
+        //This is another method for creating objects using "object.create()" BUT we need to 
+        //be careful, because some old browsers don't support the method of "object.create()"
+        //which could crash our code
+        let car2 = Object.create(car1);
+
+    </script>
+</body>
+
+</html>

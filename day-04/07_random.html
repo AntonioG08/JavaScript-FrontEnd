@@ -6,21 +6,21 @@
     <body>
         <h1>Generador de número aleatorio</h1>
         <br>
-        <p><button onclick="mostrarResultado();">Calcular aleatorio SIN redondeo</button></p>
-        <p><input type="checkbox" id="siRedondear"> Quiero redondear mi resultado</p>
+        <p><button onclick="showResult();">Calcular aleatorio SIN redondeo</button></p>
+        <p><input type="checkbox" id="wantRounding"> Quiero redondear mi resultado</p>
         <p id="randomNumber">Número: </p>
 
         <script>
-            function mostrarResultado(){
-                const myCheckBox = document.getElementById("siRedondear");
-                let resultadoAleatorio = document.getElementById("randomNumber");
+            function showResult(){
+                const myCheckBox = document.getElementById("wantRounding");
+                let randomResult = document.getElementById("randomNumber");
                 
                 if (myCheckBox.checked) {
                     let number = Math.round(Math.random() * 100);
-                    resultadoAleatorio.textContent = "Número: " + number;
+                    randomResult.textContent = "Número: " + number;
                 } else {
                     let number = Math.random() * 100;
-                    resultadoAleatorio.textContent = "Número: " + number;
+                    randomResult.textContent = "Número: " + number;
                 }
             }
         </script>

@@ -23,19 +23,19 @@
     document.write("<br><br>")
 
     //Initialize variables for the loop
-    let alto = 3;
-    let ancho = 4;
+    let height = 3;
+    let width = 4;
 
     //Initialize the label
-    loopExterno:
+    outerLoop:
 
     //Initialize the loop
-    for (let y = 1; y <= alto; y++) {
-        for (let x = 1; x <= ancho; x++) {
+    for (let y = 1; y <= height; y++) {
+        for (let x = 1; x <= width; x++) {
             document.write(`${y}.${x}<br>`);
             if (y == 2 && x == 2) {
                 //Break and take us to the point of the label
-                break loopExterno;
+                break outerLoop;
             }
         }
     }

@@ -1,15 +1,15 @@
-function evaluarCompra() {
-    let elementoRespuesta = document.getElementById("decision");
+function evaluatePurchase() {
+    let answerElement = document.getElementById("decision");
 
-    let precio = document.getElementById("textoPrecio").value;
+    let price = document.getElementById("priceText").value;
 
-    if (precio > 0 && precio <= 5) {
-        elementoRespuesta.textContent = "Comprar 2 cartones de leche";
+    if (price > 0 && price <= 5) {
+        answerElement.textContent = "Comprar 2 cartones de leche";
     } else {
-        if (precio <= 8) {
-            elementoRespuesta.textContent = "Comprar SOLO 1 cartón de leche";
+        if (price <= 8) {
+            answerElement.textContent = "Comprar SOLO 1 cartón de leche";
         } else {
-            elementoRespuesta.textContent = "No compres cartones de leche";
+            answerElement.textContent = "No compres cartones de leche";
         }
     }
 }

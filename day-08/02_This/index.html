@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Mi primer objecto</title>
+    <link>
+    <script></script>
+</head>
+
+<body>
+    <script>
+        //Initialize the first object in JS
+        let myDog = {
+            name: "Clifford",
+            race: "Boxer",
+            age: 8,
+            bark() {
+                console.log("Woof");
+            },
+
+            //Method used to say hi to the user
+            greet() {
+                console.log("Hola, me llamo " + this.name);
+            }
+        };
+
+        //Initialize another object
+        let anotherDog = {
+            name: "Pluto",
+            race: "Golden Retriever",
+            age: 8,
+            bark() {
+                console.log("Woof");
+            },
+
+            //Method used to say hi to the user
+            greet() {
+                console.log("Hola, me llamo " + this.name);
+            }
+        };
+
+        //Call both objects and their functions, which will show their own names thanks to their local context
+        myDog.greet();
+        anotherDog.greet();
+    </script>
+</body>
+
+</html>

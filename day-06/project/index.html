@@ -7,33 +7,33 @@
     <script src="proyecto_06.js"></script>
 </head>
 
-<body onload="mostrarListado()">
+<body onload="showList()">
     <div class="logo">
         <img src="logo.jpg" />
         <h2>Bienvenido a tu boletín estudiantil</h2>
     </div>
 
-    <div class="estudiante">
+    <div class="student">
         <h3>Alumno: Antonio Gómez Ruiz</h3>
     </div>
 
     <h4>Notas:</h4>
-    <ul id="textoListadoCalificaciones">
+    <ul id="gradesListText">
     </ul>
 
     <div class="info">
-        <button onclick="mostrarPromedio()">Obtener promedio</button>
-        <button onclick="mostrarNotaAlta()">Conocer nota más alta</button>
-        <button onclick="mostrarReprobados()">¿Hubo reprobados?</button>
+        <button onclick="showAverage()">Obtener promedio</button>
+        <button onclick="showHighestGrade()">Conocer nota más alta</button>
+        <button onclick="showFailed()">¿Hubo reprobados?</button>
 
         <br>
-        <p id="textoPromedio"></p>
+        <p id="averageText"></p>
 
         <br>
-        <p id="textoNotaAlta"></p>
+        <p id="highestGradeText"></p>
 
         <br>
-        <p id="textoReprobado"></p>
+        <p id="failedText"></p>
     </div>
 </body>
 

@@ -1,0 +1,70 @@
+SEVENTH DAY
+
+For the seventh day, we will put together almost everything we have learned so far:
+variables, functions, arrays and loops, but this time all inside a single project that
+we improve step by step. The interesting part is not just making it work, but making it
+BETTER on each version, which is exactly how real code grows. Our client for today is
+"MaDona", a donut shop that wants to know the sales of its stores.
+
+The project lives in several folders (version-01 up to version-06-project), and each 
+version is an evolution of the previous one. Let's walk through the journey.
+
+
+==== VERSION 1 - The naive approach
+In the first version we simply have 5 fixed inputs (one per store), and a function that
+reads each one, turns it into a Number, and sums them all. It works, but notice how
+repetitive it is:
+
+    sales1 = getNumberFromElement("storeSales1");
+    sales2 = getNumberFromElement("storeSales2");
+    ...
+
+If tomorrow MaDona opens a 6th store, we would have to touch the HTML AND the JS. Not
+scalable, and that repetition is exactly the smell we want to remove.
+
+
+==== VERSION 2 - Arrays + reusable functions
+Here we start thinking better. Instead of 5 separate variables, we use an ARRAY to hold
+all the sales, and we create small functions that each do ONE job:
+    - sumTotal(array)         -> adds up all the elements
+    - findHighestSale(array)  -> returns the biggest value
+    - findLowestSale(array)   -> returns the smallest value
+
+The trick for the max/min is nice: we initialize a variable with the FIRST element of the
+array, and then loop comparing every element against it, updating the variable whenever we
+find a bigger (or smaller) one. Simple, but powerful, and it works for an array of any size.
+
+
+==== VERSION 3 & 4 - Generating the form dynamically
+Why should we hardcode the 5 stores in the HTML? What if we want 4, or 9, or 100? So the
+next step is to build the inputs with JavaScript itself, using the DOM creation methods:
+    - document.createElement("p") / ("label") / ("input")
+    - element.setAttribute("id", ...), setAttribute("min", ...), etc.
+    - parent.appendChild(child)
+
+In version 4 we finish this with a function createStores(containerID, min, numStores) that
+runs a loop and creates as many stores as we ask for, calling it from the "onload" of the
+body. Here we also met the "defer" attribute in the script tag, which tells the JS to wait
+for the HTML to be ready before running.
+
+
+==== VERSION 5 - Reading the inputs dynamically
+Now that the inputs are created dynamically, we can no longer rely on fixed ids like
+"storeSales1". So instead we ask the container for its CHILDREN and iterate over them.
+Each paragraph "p" contains a label (child 0) and an input (child 1), so we read
+item.children[1] to get its value. This way the code works no matter how many stores exist.
+
+
+==== VERSION 6 (PROJECT) - The improvement for Ramiro
+The last version is the actual assignment: instead of printing the highest and lowest sale
+in a text message, we HIGHLIGHT them by changing the background color of the corresponding
+inputs. After doing all the calculations, we loop through the inputs one more time, compare
+each value against highestSale / lowestSale, and assign a CSS class accordingly:
+    - highest sale -> greenyellow
+    - lowest sale  -> lightsalmon
+    - the rest     -> a neutral class
+
+NOTE:
+The big lesson of this day is REFACTORING. The first version already worked, but each new
+version made the code more flexible and reusable. That progression (make it work -> make it
+clean -> make it dynamic) is the real skill we are training here.

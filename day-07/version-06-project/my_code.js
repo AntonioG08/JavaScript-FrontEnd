@@ -1,143 +1,143 @@
 //Function used to dynamically generate the form for all the available stores
-function crearParrafoTienda(textoLabel, valorMin) {
+function createStoreParagraph(labelText, minValue) {
     //Initialize the paragraph and label elements
-    let elementoParrafo = document.createElement("p");
-    let elementoEtiqueta = document.createElement("label");
+    let paragraphElement = document.createElement("p");
+    let labelElement = document.createElement("label");
 
     //Connect the label with the input
-    elementoEtiqueta.setAttribute("for", textoLabel);
-    elementoEtiqueta.innerText = textoLabel + ": ";
+    labelElement.setAttribute("for", labelText);
+    labelElement.innerText = labelText + ": ";
 
     //Create the input element along with its attributes
-    let elementoInput = document.createElement("input");
-    elementoInput.setAttribute("type", "number");
-    elementoInput.setAttribute("id", textoLabel);
-    elementoInput.setAttribute("min", valorMin);
-    elementoInput.setAttribute("value", 0);
+    let inputElement = document.createElement("input");
+    inputElement.setAttribute("type", "number");
+    inputElement.setAttribute("id", labelText);
+    inputElement.setAttribute("min", minValue);
+    inputElement.setAttribute("value", 0);
 
     //Append the label and the input to the paragraph
-    elementoParrafo.appendChild(elementoEtiqueta);
-    elementoParrafo.appendChild(elementoInput);
+    paragraphElement.appendChild(labelElement);
+    paragraphElement.appendChild(inputElement);
 
     //Return the complete paragraph
-    return elementoParrafo
+    return paragraphElement
 }
 
 //Function used to help us create new stores dynamically
-function crearTiendas(contenedorID, min, numTiendas) {
+function createStores(containerID, min, numStores) {
     //Find the container of our HTML file by its ID
-    let elementoContenedor = document.getElementById(contenedorID);
+    let containerElement = document.getElementById(containerID);
 
     //Loop for creating as much stores as needed
-    for (let conteoTiendas = 1; conteoTiendas <= numTiendas; conteoTiendas++) {
+    for (let storeCount = 1; storeCount <= numStores; storeCount++) {
 
         //Create the text of the label so we can call the function
-        let textoEtiqueta = "Tienda " + conteoTiendas;
+        let labelText = "Tienda " + storeCount;
 
-        //Create a store with the function 'crearParrafoTienda
-        let parrafoTienda = crearParrafoTienda(textoEtiqueta, min);
+        //Create a store with the function 'createStoreParagraph
+        let storeParagraph = createStoreParagraph(labelText, min);
 
         //Add the paragraph to the container
-        elementoContenedor.appendChild(parrafoTienda);
+        containerElement.appendChild(storeParagraph);
     }
 }
 
 //Function used to obtain the numbers from the HTML document
-function extraerNumeroDesdeElemento(elemento) {
-    let miElemento = elemento.value;
-    let miNumero = Number(miElemento);
+function getNumberFromElement(element) {
+    let myElement = element.value;
+    let myNumber = Number(myElement);
 
-    return miNumero
+    return myNumber
 }
 
 //Function used to get the total sum from a given array
-function sumarTotal(miArray) {
+function sumTotal(miArray) {
     let total = 0;
 
-    for (let venta of miArray) {
-        total = total + venta;
+    for (let sale of miArray) {
+        total = total + sale;
     };
 
     return total;
 }
 
 //Function used to get the maximum value of the array
-function hallarMayorVenta(miArray) {
+function findHighestSale(miArray) {
     //Initialize with a first value to begin the comparison
-    let maximoNumero = miArray[0];
+    let maxNumber = miArray[0];
 
     //Loop for anlyzing all the elements of the array
-    for (let venta of miArray) {
-        if (venta > maximoNumero) {
-            maximoNumero = venta;
+    for (let sale of miArray) {
+        if (sale > maxNumber) {
+            maxNumber = sale;
         };
     };
 
     //Return the information back to the caller
-    return maximoNumero;
+    return maxNumber;
 }
 
 //Function used to get the minimum value of the array
-function hallarMenorVenta(miArray) {
+function findLowestSale(miArray) {
     //Initialize with a first value to begin the comparison
-    let maximoNumero = miArray[0];
+    let maxNumber = miArray[0];
 
     //Loop for anlyzing all the elements of the array
-    for (let venta of miArray) {
-        if (venta < maximoNumero) {
-            maximoNumero = venta;
+    for (let sale of miArray) {
+        if (sale < maxNumber) {
+            maxNumber = sale;
         };
     };
 
     //Return the information back to the caller
-    return maximoNumero;
+    return maxNumber;
 }
 
 //Function used to perform the main calculations of this system
-function calcular() {
+function calculate() {
     //Initialize the variables we will be needing
-    let ventas = [];
-    let posicionVentas = 0;
-    let elementosVentas = document.getElementById("itemsTiendas");
+    let sales = [];
+    let salesPosition = 0;
+    let salesElements = document.getElementById("storeItems");
 
     //Initialize a loop looking for the children of the div (container)
     //The children is the paragraph "p" elements, which also contain label + input
-    for (let item of elementosVentas.children) {
+    for (let item of salesElements.children) {
         //The label is the element 0, while the input is the element 1. 
         //See the saved image for further references
-        let valorVenta = extraerNumeroDesdeElemento(item.children[1]);
+        let saleValue = getNumberFromElement(item.children[1]);
 
         //Assign the obtained value to our list, and increment the index accordingly
-        ventas[posicionVentas] = valorVenta;
-        posicionVentas++;
+        sales[salesPosition] = saleValue;
+        salesPosition++;
     }
 
     //Perform the calculations for the user
-    let totalVentas = sumarTotal(ventas);
-    let ventaMayor = hallarMayorVenta(ventas);
-    let ventaMenor = hallarMenorVenta(ventas);
+    let totalSales = sumTotal(sales);
+    let highestSale = findHighestSale(sales);
+    let lowestSale = findLowestSale(sales);
 
-    console.log(ventaMayor);
-    console.log(ventaMenor);
+    console.log(highestSale);
+    console.log(lowestSale);
 
     //Iterate searching for the highest and lowest selling values
-    for (let item of elementosVentas.children) {
-        let valorVenta = extraerNumeroDesdeElemento(item.children[1]);
+    for (let item of salesElements.children) {
+        let saleValue = getNumberFromElement(item.children[1]);
 
-        item.children[1].className = "menuNeutroTony";
+        item.children[1].className = "menuNeutral";
 
-        if (valorVenta == ventaMayor) {
-            item.children[1].className = "menuInputMayor";
+        if (saleValue == highestSale) {
+            item.children[1].className = "menuInputHighest";
         }
 
-        if (valorVenta == ventaMenor) {
-            item.children[1].className = "menuInputMenor";
+        if (saleValue == lowestSale) {
+            item.children[1].className = "menuInputLowest";
         }
     }
 
     //Display the messages to the user
-    let mensajeSalida = "Total Ventas: " + totalVentas;
-    let elementoSalida = document.getElementById("parrafoSalida");
+    let outputMessage = "Total Ventas: " + totalSales;
+    let outputElement = document.getElementById("outputParagraph");
 
-    elementoSalida.textContent = mensajeSalida;
+    outputElement.textContent = outputMessage;
 }

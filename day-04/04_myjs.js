@@ -1,9 +1,9 @@
-function calcularLitros(){
-    var elementoKm = document.getElementById("textoKm");
-    var cantidadKm = Number(elementoKm.value);
+function calculateLiters(){
+    var kmElement = document.getElementById("kmText");
+    var kmAmount = Number(kmElement.value);
 
-    var cantidadLitros = Math.round(cantidadKm/13.5);
+    var litersAmount = Math.round(kmAmount/13.5);
 
-    var resultado = document.getElementById("textoCombustible");
-    resultado.textContent = "Deberías cargar " + cantidadLitros + " litros de gasolina."
+    var result = document.getElementById("fuelText");
+    result.textContent = "Deberías cargar " + litersAmount + " litros de gasolina."
 }

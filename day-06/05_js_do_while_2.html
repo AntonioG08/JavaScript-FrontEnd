@@ -10,7 +10,7 @@
     <h1>Ejemplo de un código con loop "Do... while" </h1>
     <br>
     <br>
-    <h3 id="miNombre"></h3>
+    <h3 id="myName"></h3>
 </body>
 <script>
     /*Prompt element displays a text box to the user, indicating to 
@@ -19,16 +19,16 @@
       
       The information coming from the prompt can be saved into a variable
       to be used later in any logic of the code*/
-    //let textoUsuarioPrueba = prompt("Escribe algo", "Por favor escriba aqui");
+    //let testUserText = prompt("Escribe algo", "Por favor escriba aqui");
 
-    let nombre;
-    let textoNombre = document.getElementById("miNombre");
+    let userName;
+    let nameText = document.getElementById("myName");
 
     do {
-        nombre = prompt("Di mi nombre (en minúsculas)");
-    } while (nombre != "antonio");
+        userName = prompt("Di mi nombre (en minúsculas)");
+    } while (userName != "antonio");
 
-    textoNombre.textContent = "Ese es mi nombre!";
+    nameText.textContent = "Ese es mi nombre!";
 
 </script>
 
