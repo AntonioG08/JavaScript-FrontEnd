@@ -18,13 +18,13 @@ p {
 }
 
 input {
-    width: 180 px;
-    height: 30 px;
+    width: 180px;
+    height: 30px;
 }
 
-#cuentaRegresiva {
+#countdown {
     border: 1px;
-    border-color:  red;
+    border-color: red;
     border-style: solid;
     color: red;
 }

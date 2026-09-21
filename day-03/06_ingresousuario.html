@@ -7,14 +7,14 @@
         <br>
 
         <p>Ingresa tu usuario/nombre</p>
-        <input type="text" id="nombreUsuario" placeholder="Mi nombre">
-        <button onclick="mostrarNombre()">Ingresar</button>
-        <h3 id="saludo">No se tu nombre</h3>
+        <input type="text" id="username" placeholder="Mi nombre">
+        <button onclick="showName()">Ingresar</button>
+        <h3 id="greeting">No se tu nombre</h3>
         <script>
-            function mostrarNombre(){
-                let elementoNombre = document.getElementById("nombreUsuario");
-                let elementoTexto = document.getElementById("saludo");
-                elementoTexto.textContent = "Saludos, " + elementoNombre.value;
+            function showName(){
+                let nameElement = document.getElementById("username");
+                let textElement = document.getElementById("greeting");
+                textElement.textContent = "Saludos, " + nameElement.value;
             }
         </script>
     </body>

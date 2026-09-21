@@ -8,11 +8,11 @@
         </style>
     </head>
     <body>
-        <input type="number" placeholder="Ingresa cuantos segundos de espera" id="tiempoElegido">
-        <button onclick="comenzarTiempo()">Alarma</button>
-        <h1 id="textoAlarma" style="color: red;">APAGADO</h1>
+        <input type="number" placeholder="Ingresa cuantos segundos de espera" id="chosenTime">
+        <button onclick="startTimer()">Alarma</button>
+        <h1 id="alarmText" style="color: red;">APAGADO</h1>
 
-        <audio id="audioAlarma">
+        <audio id="alarmAudio">
             <source src="alarma.mp3" type="audio/mpeg">
             Sonido no habilitado
         </audio>
@@ -23,18 +23,18 @@
         </audio>
 
         <script>
-            let elementoSegundos = document.getElementById("tiempoElegido");
-            let elementoAlarma = document.getElementById("textoAlarma");
-            let elementoSonidoAlarma = document.getElementById("audioAlarma");
+            let secondsElement = document.getElementById("chosenTime");
+            let alarmElement = document.getElementById("alarmText");
+            let alarmSoundElement = document.getElementById("alarmAudio");
             
-            function comenzarTiempo(){
-                setTimeout(tiempoCumplido, 1000 * elementoSegundos.value);
+            function startTimer(){
+                setTimeout(timeUp, 1000 * secondsElement.value);
             }
 
-            function tiempoCumplido(){
-                elementoAlarma.textContent = "ENCENDIDO";
-                elementoAlarma.style.color = "green";
-                elementoSonidoAlarma.play();
+            function timeUp(){
+                alarmElement.textContent = "ENCENDIDO";
+                alarmElement.style.color = "green";
+                alarmSoundElement.play();
             }
         </script>
     </body>

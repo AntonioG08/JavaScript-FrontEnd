@@ -5,13 +5,13 @@
     </head>
     <body>
         <p>Ingresa tu nombre por favor</p>
-        <input type="text" placeholder="Mi nombre" id="nombreUsuario">
-        <button onclick="saludarUsuario()">Saludar</button>
+        <input type="text" placeholder="Mi nombre" id="username">
+        <button onclick="greetUser()">Saludar</button>
     </body>
     <script>
-        function saludarUsuario(){
-            let nombre = document.getElementById("nombreUsuario");
-            alert("Hola " + nombre.value  + "! Saludos")
+        function greetUser(){
+            let nameElement = document.getElementById("username");
+            alert("Hola " + nameElement.value  + "! Saludos")
         }
     </script>
 </html>

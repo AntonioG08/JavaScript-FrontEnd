@@ -3,78 +3,78 @@
         <title>Proyecto 3 | Responde rápido</title>
         <link rel="stylesheet" href="proyecto3.css">
     </head>
-    <body onload="cuentaRegresiva()">
-        <h2>Responde a las preguntas lo más rápido que puedas <span id="cuentaRegresiva"></span></h2>
+    <body onload="startCountdown()">
+        <h2>Responde a las preguntas lo más rápido que puedas <span id="countdown"></span></h2>
         <p>1. Cual es la capital de México?</p>
-        <input type="text" id="respuesta1">
+        <input type="text" id="answer1">
 
         <p>2. Cuanto es 7x7?</p>
-        <input type="text" id="respuesta2">
+        <input type="text" id="answer2">
 
         <p>3. Colores de la bandera de Francia?</p>
-        <input type="text" id="respuesta3">
+        <input type="text" id="answer3">
 
         <p>4. Cual es el año actual?</p>
-        <input type="text" id="respuesta4">
+        <input type="text" id="answer4">
 
         <p>5. Bebida mas famosa a nivel mundial?</p>
-        <input type="text" id="respuesta5">
+        <input type="text" id="answer5">
         <br><br>
 
-        <button onclick="finalizado()">Terminé!</button>
+        <button onclick="finish()">Terminé!</button>
         <br><br>
-        <button onclick="volverIntentar()">Volver a intentar</button>
+        <button onclick="tryAgain()">Volver a intentar</button>
 
-        <audio id="audioFinal">
+        <audio id="endAudio">
             <source src="gameover.mp3" type="audio/mpeg">
             Audio de fin de juego
         </audio>
 
         <script>
-            let tiempoTerminado;
-            let intervaloDeTiempo;
+            let countdownTimeout;
+            let timeInterval;
 
-            function cuentaRegresiva(){
-                tiempoTerminado = setTimeout(tiempoCumplido, 30000);
-                intervaloDeTiempo = setInterval(ticTac, 1000);
+            function startCountdown(){
+                countdownTimeout = setTimeout(timeUp, 30000);
+                timeInterval = setInterval(tick, 1000);
 
-                document.getElementById("cuentaRegresiva").textContent = 30;
+                document.getElementById("countdown").textContent = 30;
             }
 
-            function ticTac(){
-                let tiempo = document.getElementById("cuentaRegresiva").textContent;
-                document.getElementById("cuentaRegresiva").textContent = tiempo - 1
+            function tick(){
+                let time = document.getElementById("countdown").textContent;
+                document.getElementById("countdown").textContent = time - 1
             }
 
-            function tiempoCumplido(){
-                clearInterval(intervaloDeTiempo);
-                document.getElementById("cuentaRegresiva").textContent = 0;
-                document.getElementById("audioFinal").play();
+            function timeUp(){
+                clearInterval(timeInterval);
+                document.getElementById("countdown").textContent = 0;
+                document.getElementById("endAudio").play();
                 alert("JUEGO FINALIZADO: Se acabó el tiempo, reinicia");
             }
 
-            function finalizado(){
-                clearTimeout(tiempoTerminado);
-                clearInterval(intervaloDeTiempo);
+            function finish(){
+                clearTimeout(countdownTimeout);
+                clearInterval(timeInterval);
 
-                let fecha = new Date();
-                let respuesta1 = document.getElementById("respuesta1").value;
-                let respuesta2 = document.getElementById("respuesta2").value;
-                let respuesta3 = document.getElementById("respuesta3").value;
-                let respuesta4 = document.getElementById("respuesta4").value;
-                let respuesta5 = document.getElementById("respuesta5").value;
+                let date = new Date();
+                let answer1 = document.getElementById("answer1").value;
+                let answer2 = document.getElementById("answer2").value;
+                let answer3 = document.getElementById("answer3").value;
+                let answer4 = document.getElementById("answer4").value;
+                let answer5 = document.getElementById("answer5").value;
 
-                let mensaje = fecha.toLocaleDateString("es-Es") + "\n" + 
-                                "1. " + respuesta1 + "\n" +
-                                "2. " + respuesta2 + "\n" +
-                                "3. " + respuesta3 + "\n" +
-                                "4. " + respuesta4 + "\n" +
-                                "5. " + respuesta5
+                let message = date.toLocaleDateString("es-Es") + "\n" + 
+                                "1. " + answer1 + "\n" +
+                                "2. " + answer2 + "\n" +
+                                "3. " + answer3 + "\n" +
+                                "4. " + answer4 + "\n" +
+                                "5. " + answer5
                 
-                alert(mensaje)
+                alert(message)
             }
 
-            function volverIntentar(){
+            function tryAgain(){
                 location.reload();
             }
         </script>

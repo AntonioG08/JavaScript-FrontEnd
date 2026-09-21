@@ -1,0 +1,15 @@
+EIGHT DAY
+
+For the eight day, we will be learning about the objects in JavaScript. We will be
+focusing in the next topics within JS's objects:
+    - What are they
+    - How to create them
+    - How to manipulate/modify them
+    - Constructors
+    - Parameters of a constructor 
+    - OOP Paradigm
+    - "For in" loop
+
+In JavaScript, objects are variables than can store both: values and functions. Thus,
+objects are one of the most important concepts in JavaScript since JS is an object
+based paradigm. 
