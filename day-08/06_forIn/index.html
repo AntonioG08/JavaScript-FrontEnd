@@ -8,23 +8,36 @@
 
 <body>
     <script>
-        //Create an empty object using the method "new Object()"
-        let car1 = new Object();
+        //Create an object constructor
+        function Dog(breed, age, color) {
+            //Object properties
+            this.legs = 4;
+            this.breed = breed;
+            this.age = age;
+            this.color = color;
 
-        car1.brand = "Nissan";
-        car1['model'] = "Skyline";
-        car1["year"] = 2016;
-        car1.encender = function () {
-            alert("The car is running");
-        };
+            //Object method #1
+            this.bark = function () {
+                console.log("Woof");
+            }
+        }
 
-        //Another way to create an object, but passing parameters from the very beginning
-        let dog1 = new Object({ name: "Cliffor", breed: "Boxer" });
+        //Create some object instances
+        let clifford = new Dog("Boxer", 8, "Brown");
+        let pluto = new Dog("Labrador", 4, "Yellow");
 
-        //This is another method for creating objects using "object.create()" BUT we need to 
-        //be careful, because some old browsers don't support the method of "object.create()"
-        //which could crash our code
-        let car2 = Object.create(car1);
+        /*The "for... in" loop allows us to go through the properties 
+          of an object in JS. For example in the "Dog" object, we can go
+          through "legs", "breed", "age", "color", and even the method
+          "bark". But we are NOT SEEING the value of that property, we 
+          Are seeing the property, similar to how we go through a 
+          dictionary in python, we iterate over the keys. To see the actual
+          value we need to use the Object[property].
+          
+          Lets see the example belor:*/
+        for (let property in clifford) {
+            console.log(`${property}: ${clifford[property]}`);
+        }
 
     </script>
 </body>
