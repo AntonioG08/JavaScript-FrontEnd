@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Prototipos en JS</title>
+</head>
+
+<body>
+    <h1>Revisar el panel del desarrollador</h1>
+
+    <script>
+        function Book(author, title, numPages) {
+            this.author = author;
+            this.title = title;
+            this.numPages = numPages;
+        }
+
+        //book1 will have everything from the constructor "Book".
+        let book1 = new Book("Stephen king", "IT", 1200);
+
+        //We now added a new method to the object constructor, WHICH will not be 
+        //Inherited to any old AND new objects created.
+        Book.openBook = function () {
+            alert(`${this.title} ha sido abierto`);
+        }
+
+        //We create book2 'hoping' to have the new method, but it wont have it, 
+        //Because we didn't add it to the prototype.
+        let book2 = new Book("J.L. Borges", "El Aleph", 300);
+
+        //This new method will be AVAILABLE for ALL the instances, previous and 
+        //new ones.
+        Book.prototype.enumeratePages = function () {
+            alert(`El libro tiene ${this.numPages} paginas`);
+        }
+
+        //IF we add this property, it will now be available for ALL the instances, but
+        //since some instances are already created without this property, it will appear
+        //as 'undefined'.
+        //Lets remember the good practice: Declare the properties (ALL) in the constructor
+        //section, and all the methods in the prototype.
+        Book.prototype.edition = this.edition;
+
+        //This is a more proper to handle the creation with best practices.
+        function OtherObject(a) {
+            this.a = a;
+        }
+        OtherObject.prototype.method1 = function () { console.log("Hello") };
+        OtherObject.prototype.method2 = function () { console.log("Other message") };
+    </script>
+</body>
+
+</html>

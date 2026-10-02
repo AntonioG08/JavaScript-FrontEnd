@@ -1,0 +1,215 @@
+EIGHT DAY
+
+For the eight day, we will be learning about prototypes in JS. But what are prototypes?
+In JavaScript, prototypes are the mechanism that allows objects to inherit features and 
+share methods from other objects. 
+
+Every object in JS has an internal link to another object calles its "prototype". So instead
+of copying methods and properties to every single instance of an object (which would waste 
+a lot of memory), JS objects look up behavior from their prototype dynamically.
+For example:
+    - Date objects inherit from "Date.prototype"
+    - Array objects inherit from "Array.prototype"
+
+The "Object.prototype" is on the top of the prototype inheritance chain. And, how does the 
+prototype chain works?
+    When we try to access a property or method on an object, JavaScript follows a specific 
+    lookup order known as the "Prototype Chain":
+
+    1. It looks for the property directly inside the current object
+    2. If its not found, it moves up to the object's prototype 
+    3. It keeps climbing the chain until it either finds the property or hits "null" (the ultimate
+        end of the chain), returning 'undefined'.
+
+Eventhough modern JS uses the 'class' keyword, introduced since ES6, this is just 'syntatic sugar'
+over the original prototype system. Under the hood, JavaScript classes still convert the code into 
+prototypes and prototype chains.
+
+This is now making sense, because previously we learned about the object constructor, and sometimes 
+we want to add new properties or methods to an object constructor (alter it), BUT we CAN'T add a 
+new property to an existing object constructor. If we want to do so, the only way is to add it to the 
+constructor function. 
+HOWEVER, with the 'prototype' property, we are allowed to add new properties or methods to object 
+constructors. 
+
+
+(Small correction to my paragraph above: it is not exactly that we "can't add to the 
+constructor". The precise version is this: if I already created objects with a constructor, 
+I can't give them all a new shared method by editing the constructor function afterwards, 
+the ones already created won't get it. What I CAN do is add it to the constructor's 
+'.prototype' (e.g. Dog.prototype.run = function(){...}), and instantly every object built 
+from Dog, the existing ones AND the future ones, gains it through the prototype chain, 
+without storing a copy inside each instance.)
+
+
+==== THREE WAYS TO CREATE OBJECTS (and how they connect)
+I was mixing up the syntaxes, so let's line them up. They are NOT three unrelated things, 
+they are three doors into the same room (the prototype chain):
+
+1. Object literal -> a single, one-off object:
+    let dog = { name: 'Clifford' };
+
+2. Object.create(proto) -> a NEW object whose prototype is 'proto' (manual link):
+    let dog1 = Object.create(dog);      // dog1's prototype IS dog
+
+3. Constructor function + 'new' -> a new object whose prototype is 'Constructor.prototype'
+   (automatic link), AND it runs the init code for us:
+    function Dog() { this.name = 'Clifford'; }   // capital letter by convention
+    let clifford = new Dog();
+
+4. class (ES6) -> just syntactic sugar over option 3, same machinery underneath.
+
+So: the literal is the simplest object, the constructor is the "factory" that stamps out 
+many objects (this.x works like Python's self.x), and Object.create is the manual way to 
+say "make me an object linked to this other one".
+
+
+==== "PROTOTYPE" IS A ROLE, NOT A TYPE
+This was a big confusion of mine: I thought a prototype was a special kind of thing. It is 
+NOT. A prototype is just an ORDINARY object that happens to sit one step up in another 
+object's chain. Any object can play that role:
+    - In Object.create(dog), the plain literal 'dog' is the prototype of dog1.
+    - A constructor automatically carries an object in 'Dog.prototype', and THAT object is 
+      the prototype shared by every 'new Dog()'.
+    - Even the built-ins are just objects: arrays link to Array.prototype, dates to 
+      Date.prototype, and everything ends at Object.prototype -> null.
+So "prototype" is a relationship (who do I look up to?), not a separate category of object.
+
+
+==== WHY "this.method" IS NOT SHARED, BUT "prototype.method" IS
+This one really tricked me. I expected that this:
+    function Dog() {
+        this.bark = function () { console.log("Woof"); };
+    }
+would make all dogs share ONE bark. But no! The reason: the constructor body RUNS AGAIN, 
+completely, every single time I call 'new Dog()'. So 'this.bark = function(){...}' executes 
+fresh on each call, and each execution creates a BRAND NEW function and pins it to that one 
+instance:
+    clifford.bark !== pluto.bark      // true -> two separate copies in memory
+
+(Same as writing 'self.bark = lambda ...' inside Python's __init__: each instance gets its 
+own copy.)
+
+Now compare putting it on the prototype:
+    function Dog() {}
+    Dog.prototype.bark = function () { console.log("Woof"); };
+
+That line runs ONLY ONCE, creating a single function on the shared Dog.prototype. Every 
+'new Dog()' just links up to that same object, nobody keeps their own copy:
+    clifford.bark === pluto.bark      // true -> ONE shared function
+
+That is the whole memory advantage: with 1,000 dogs, the first option stores 1,000 identical 
+bark functions, the prototype option stores just 1. Rule of thumb: data that is UNIQUE per 
+object (name, age) goes on 'this' inside the constructor; BEHAVIOR that is the same for 
+everyone (methods) goes on the prototype.
+
+
+==== QUICK MENTAL MODEL
+- Change a property ON AN INSTANCE   -> only that instance changes (it "shadows" the proto).
+- Change a property ON THE PROTOTYPE -> every linked object sees it instantly (live lookup).
+- Unique state -> 'this' (constructor).   Shared behavior -> the prototype.
+
+
+==== EXTRA - EXPLORING THE PROTOTYPE CHAIN IN THE CONSOLE
+To really nail this, I opened the DevTools console and inspected a small example with a 
+Book constructor:
+
+    function Book(author, title, numPages) {
+        this.author = author;
+        this.title = title;
+        this.numPages = numPages;
+    }
+
+    let book1 = new Book("Stephen king", "IT", 1200);
+    let book2 = Object.create(book1);   // book2's prototype IS book1
+
+What I confirmed by inspecting them:
+    - book1.__proto__ === Book.prototype   // true  (new Book linked it here)
+    - book2.__proto__ === book1            // true  (Object.create(book1) linked it here)
+    - book2 has NO own properties (it prints as "Book {}"), YET book2.title returns "IT",
+      because it climbs one hop up to book1 and finds it there. Pure delegation.
+
+So the chain for these looks like:
+    book2  ->  book1  ->  Book.prototype  ->  Object.prototype  ->  null
+    (empty)    (author/title/numPages)        (constructor: Book)
+
+
+==== EXTRA - CREATING A NEW OBJECT FROM AN EXISTING ONE'S CONSTRUCTOR
+This experiment was my favorite:
+
+    let book3 = new book1.constructor("Franz Kafka", "La metamorfosis", 350);
+
+Why does this work? book1 does NOT have its own 'constructor' property, so JS climbs the 
+chain up to Book.prototype, which DOES have 'constructor: Book'. So 'book1.constructor' IS 
+the Book function, and 'new book1.constructor(...)' is exactly the same as 'new Book(...)'. 
+It is a way to say "make me another one of whatever this thing is" without hardcoding the 
+class name.
+
+The results proved book3 is a fresh, INDEPENDENT instance:
+    book3.title   // "La metamorfosis"  (its own brand new data)
+    book2.title   // "IT"               (still inherited from book1)
+    book1.title   // "IT"               (untouched)
+
+Family tree of what I built:
+    book1 -> Book.prototype
+    book3 -> Book.prototype             (sibling of book1, both made with 'new Book')
+    book2 -> book1 -> Book.prototype    (book2 hangs off book1, not off Book.prototype)
+
+NOTE:
+book3 and book1 are SIBLINGS (both point straight to Book.prototype), while book2 is a 
+"child" of book1 (Object.create(book1)). Same chain machinery, different link target, 
+depending on whether I used 'new' or 'Object.create'.
+
+
+==== STATIC METHODS vs PROTOTYPE METHODS
+Today I tested WHERE I attach a method, and it changes everything:
+
+    Book.openBook = function () {           // STATIC method
+        alert(`${this.title} ha sido abierto`);
+    };
+
+'Book.openBook' lives on the Book FUNCTION itself, not on Book.prototype. So instances do 
+NOT inherit it: book1.openBook is undefined. I call it as Book.openBook(). It is like a 
+"class-level" helper (note: inside it 'this' is Book, not an instance).
+
+    Book.prototype.enumeratePages = function () {   // PROTOTYPE (instance) method
+        alert(`El libro tiene ${this.numPages} paginas`);
+    };
+
+This one lives on the prototype, so EVERY instance gets it through the chain, even book1 
+which was created BEFORE this line existed. That is the live-link again.
+
+Rule: Constructor.method  -> static (on the function, not shared with instances).
+      Constructor.prototype.method -> shared by all instances (old and new).
+
+
+==== GOTCHA: PUTTING DATA ON THE PROTOTYPE
+I tried:
+    Book.prototype.edition = this.edition;
+
+Two lessons here:
+    1. At the top level of a normal <script>, 'this' is 'window', so 'this.edition' is 
+       'window.edition' = undefined. I accidentally assigned undefined to the prototype.
+    2. It shows as undefined NOT because book1/book2 were created earlier. A prototype 
+       property reaches ALL instances no matter when they were created (I proved that with 
+       enumeratePages). It is undefined only because the VALUE I assigned was undefined.
+       If I had written Book.prototype.edition = "1st ed", then book1 AND book2 would both 
+       read "1st ed".
+
+Extra danger: prototype data is SHARED across every instance. If it were an object or an 
+array, all instances would point to the SAME reference, so mutating it through one instance 
+would change it for all of them. That is why per-instance state does not belong here.
+
+
+==== BEST PRACTICE (the pattern to keep)
+    - Per-instance DATA (state)  -> declare it in the CONSTRUCTOR with this.x
+    - Shared BEHAVIOR (methods)  -> put it on the PROTOTYPE
+
+    function OtherObject(a) {
+        this.a = a;                     // data -> constructor
+    }
+    OtherObject.prototype.method1 = function () { console.log("Hello"); };   // methods
+    OtherObject.prototype.method2 = function () { console.log("Other message"); };
+
+This keeps each object carrying only its own data, while all objects share ONE copy of each 
+method through the chain. Clean and memory-friendly.

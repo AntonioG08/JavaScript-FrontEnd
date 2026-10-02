@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Prototipos en JS</title>
+</head>
+
+<body>
+    <h1>Revisar el panel del desarrollador</h1>
+
+    <script>
+        //This is a prototype, it's 'the origin'
+        let dog = { name: 'Clifford' };
+
+        //This object is linked to the prototype, thus sharing ALL their attributes and methods
+        let dog1 = Object.create(dog);
+    </script>
+</body>
+
+</html>
